@@ -9,7 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.SwaggerUI;
+
 using Microsoft.EntityFrameworkCore;
 using api.Domain.Repositories;
 using api.Domain.Services;
@@ -38,6 +43,19 @@ namespace api
             services.AddScoped<ICityRepository, CityRepository>();
             services.AddScoped<ICityService, CityService>();
 
+            services.AddSwaggerGen(options => {
+                options.SwaggerDoc("v1", 
+                    new OpenApiInfo {
+                        Title = "Desafio Linx - API",
+                        Version = "v1",
+                        Description = "Resposta ao desafio da Linx, criando uma API REST in ASP.NET Core",
+                        Contact = new OpenApiContact
+                            {
+                                Name = "George L. 'Maverick' Maluf",
+                                Url = new Uri("https://github.com/GeorgeLMaluf/")
+                            }
+                    });
+            });            
 
             services.AddControllers();
         }
@@ -51,6 +69,11 @@ namespace api
             }
             
             //app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI (config => {
+                config.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio Linx V1");
+            });
 
             app.UseRouting();
 
