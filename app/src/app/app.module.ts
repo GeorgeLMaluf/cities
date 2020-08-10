@@ -1,26 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { CidadeComponent } from './cidade/cidade.component';
-import { CidadeListComponent } from './cidade/cidade-list/cidade-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppHeaderComponent,
-    CidadeComponent,
-    CidadeListComponent
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
-    BsDropdownModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]
