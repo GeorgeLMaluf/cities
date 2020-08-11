@@ -11,6 +11,9 @@ namespace api.Domain.Services
         Task<CityResponse> SaveAsSync(City city);
 
         Task<City> FindById(long id);
+
+        Task<IEnumerable<City>>FindByPattern(string pattern);
+        
         Task<CityResponse> UpdateAsync(long id, City city);
 
         Task<CityResponse> DeleteAsync(long id);

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using api.Domain.Models;
 using api.Domain.Repositories;
 using api.Persistence.Contexts;
+using System.Linq;
 
 namespace api.Persistence.Repositories
 {
@@ -31,6 +32,14 @@ namespace api.Persistence.Repositories
             return await _context.Cities.FindAsync(id);
         }
 
+        public async Task<IEnumerable<City>> FindByPatternAsync(string pattern)
+        {            
+            var cities = await _context.Cities.ToListAsync();
+            
+            return cities.Where(c => (c.Cidade.Contains(pattern) || 
+                c.Uf.Contains(pattern) ||
+                c.Regiao.Contains(pattern))).Select(c => c).ToList();
+        }
         public void Update(City city)
         {
             _context.Cities.Update(city);
@@ -39,6 +48,6 @@ namespace api.Persistence.Repositories
         public void Remove(City city)
         {
             _context.Cities.Remove(city);
-        }
+        }        
     }
 }

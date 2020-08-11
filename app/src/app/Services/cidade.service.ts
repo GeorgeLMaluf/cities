@@ -21,6 +21,10 @@ export class CidadeService {
     return this.http.get<Cidade>(`${environment.apiUrl}/cities/${id}`, { headers: this.headers});
   }
 
+  getByPattern(pattern) {
+    return this.http.get<Cidade[]>(`${environment.apiUrl}/cities/${pattern}`, {headers: this.headers});
+  }
+
   removeById(id) {
     return this.http.delete(`${environment.apiUrl}/cities/${id}`, {headers : this.headers});
   }

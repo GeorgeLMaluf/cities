@@ -10,6 +10,9 @@ namespace api.Domain.Repositories
         Task AddAsync(City city);
 
         Task<City> FindByIdAsync(long id);
+
+        Task<IEnumerable<City>> FindByPatternAsync(string pattern);
+        
         void Update(City city);
 
         void Remove(City city);

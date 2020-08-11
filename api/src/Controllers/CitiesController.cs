@@ -29,11 +29,18 @@ namespace api.Controllers
             return resources;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<CityResource> Get(long id) {
             var city = await _cityService.FindById(id);
             var resource = _mapper.Map<City, CityResource>(city);
             return resource;
+        }
+
+        [HttpGet("{pattern}")]
+        public async Task<IEnumerable<CityResource>> SearchByPattern(string pattern) {
+            var cities = await _cityService.FindByPattern(pattern);
+            var resources = _mapper.Map<IEnumerable<City>, IEnumerable<CityResource>>(cities);
+            return resources;            
         }
 
         [HttpPost]

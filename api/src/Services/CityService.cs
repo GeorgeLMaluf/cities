@@ -28,6 +28,11 @@ namespace api.Services
             return await _cityRepo.FindByIdAsync(id);
         }
 
+        public async Task<IEnumerable<City>> FindByPattern(string pattern)
+        {
+            return await _cityRepo.FindByPatternAsync(pattern);
+        }
+
         public async Task<CityResponse> SaveAsSync(City city)
         {
             try
@@ -83,5 +88,6 @@ namespace api.Services
                 return new CityResponse($"Ocorreu um erro: {ex.Message})");
             }
         }
+        
     }
 }

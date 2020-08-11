@@ -6,7 +6,19 @@
 </div>
 <div class="container">
   <h3>Cidades</h3>
-  <form class="row">
+  <form [formGroup]="Formulario" class="row" (ngSubmit)="filtrar()">
+    <div class="form-group">
+      <label for="buscar">Pesquisar</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="Buscar" formControlName="Buscar" placeholder="Digite nome da cidade, uf ou regiao">
+        <div class="input-group-btn">
+          <button type="submit" class="btn btn-default"><i class="fas fa-search"></i>Pesquisar</button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-auto align-self-end">
+
+    </div>
   </form>
   <button type="button" class="btn btn-primary" [routerLink]="['./novo']">Novo</button>
   <div class="table-responsive">

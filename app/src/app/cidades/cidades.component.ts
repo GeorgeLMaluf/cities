@@ -1,4 +1,5 @@
 import { Component, TemplateRef, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Cidade } from 'src/app/Models/cidade';
 import { CidadeService } from 'src/app/Services/cidade.service';
@@ -15,21 +16,35 @@ export class CidadesComponent implements OnInit {
   isLoading: boolean;
   cidades: Cidade[];
   cidadeToDelete: any;
+  Formulario: FormGroup;
 
   constructor(
     private cidadesrv: CidadeService,
     private modalService: BsModalService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
+    this.Formulario = this.fb.group ({
+      Buscar: [null, Validators.required]
+    });
     this.loadCidades();
   }
 
   private loadCidades() {
     this.isLoading = true;
     this.cidadesrv.getAll()
+      .subscribe(response => {
+        this.isLoading = false;
+        this.cidades = response;
+      });
+  }
+
+  filtrar() {
+    this.isLoading = true;
+    this.cidadesrv.getByPattern(this.Formulario.value.Buscar)
       .subscribe(response => {
         this.isLoading = false;
         this.cidades = response;
@@ -61,4 +76,6 @@ export class CidadesComponent implements OnInit {
     this.deleteCity(data.id);
     this.modalRef.hide();
   }
+
+
 }
