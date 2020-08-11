@@ -24,9 +24,12 @@
     ".NETCoreApp,Version=v3.1": {
       "api/1.0.0": {
         "dependencies": {
+          "AutoMapper": "10.0.0",
           "Microsoft.EntityFrameworkCore.Analyzers": "3.1.4",
           "Microsoft.EntityFrameworkCore.Design": "3.1.4",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.6",
+          "Microsoft.Extensions.DependencyModel": "3.1.6",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.2",
           "Swashbuckle.AspNetCore": "5.5.1",
@@ -270,7 +273,6 @@
           "System.Text.Encoding.Reference": "4.1.2.0",
           "System.Text.Encoding.Extensions.Reference": "4.1.2.0",
           "System.Text.Encodings.Web.Reference": "4.0.5.0",
-          "System.Text.Json": "4.0.1.0",
           "System.Text.RegularExpressions.Reference": "4.2.2.0",
           "System.Threading.Channels": "4.0.2.0",
           "System.Threading.Reference": "4.1.2.0",
@@ -305,6 +307,21 @@
         },
         "compile": {
           "api.dll": {}
+        }
+      },
+      "AutoMapper/10.0.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Reflection.Emit": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -687,7 +704,7 @@
       "Microsoft.Extensions.Caching.Memory/3.1.4": {
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "3.1.4",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.4",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.6",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.4",
           "Microsoft.Extensions.Options": "3.1.4"
         },
@@ -745,7 +762,7 @@
       },
       "Microsoft.Extensions.DependencyInjection/3.1.4": {
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.4"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.6"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {
@@ -757,15 +774,29 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.4": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.6": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
-            "assemblyVersion": "3.1.4.0",
-            "fileVersion": "3.100.420.21409"
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.DependencyModel/3.1.6": {
+        "dependencies": {
+          "System.Text.Json": "4.7.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31604"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
         }
       },
       "Microsoft.Extensions.Logging/3.1.4": {
@@ -798,7 +829,7 @@
       },
       "Microsoft.Extensions.Options/3.1.4": {
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.4",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.6",
           "Microsoft.Extensions.Primitives": "3.1.4"
         },
         "runtime": {
@@ -1479,7 +1510,7 @@
           "System.Linq": "4.3.0",
           "System.ObjectModel": "4.3.0",
           "System.Reflection": "4.3.0",
-          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.Emit": "4.7.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
@@ -1558,15 +1589,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Reflection.Emit/4.3.0": {
-        "dependencies": {
-          "System.IO": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Emit.ILGeneration": "4.3.0",
-          "System.Reflection.Primitives": "4.3.0",
-          "System.Runtime": "4.3.0"
-        }
-      },
+      "System.Reflection.Emit/4.7.0": {},
       "System.Reflection.Emit.ILGeneration/4.3.0": {
         "dependencies": {
           "System.Reflection": "4.3.0",
@@ -1808,6 +1831,17 @@
         }
       },
       "System.Text.Encodings.Web/4.5.0": {},
+      "System.Text.Json/4.7.2": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {
+            "assemblyVersion": "4.0.1.2",
+            "fileVersion": "4.700.20.21406"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
+        }
+      },
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -3309,12 +3343,6 @@
         },
         "compileOnly": true
       },
-      "System.Text.Json/4.0.1.0": {
-        "compile": {
-          "System.Text.Json.dll": {}
-        },
-        "compileOnly": true
-      },
       "System.Text.RegularExpressions.Reference/4.2.2.0": {
         "compile": {
           "System.Text.RegularExpressions.dll": {}
@@ -3490,6 +3518,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T09NoqMZBqw0/JEauXulxnmmerl0Zj03e0r6VCcJ0LURWBIaYxZPPoiDv8bHf5Y4x2xcXJp4JPXoCaeOMJfHEA==",
+      "path": "automapper/10.0.0",
+      "hashPath": "automapper.10.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",
@@ -3673,12 +3708,19 @@
       "path": "microsoft.extensions.dependencyinjection/3.1.4",
       "hashPath": "microsoft.extensions.dependencyinjection.3.1.4.nupkg.sha512"
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.4": {
+    "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-AceHamXNKDMDwIoZqEoApLp8s3935wSC3VXrPaRWa0wWOaEcYdDlo1nWQ1zLiezoDmpJzV7FqDm53E0Ty/hEMg==",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.4",
-      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.1.4.nupkg.sha512"
+      "sha512": "sha512-JVlypPjlPqOEyAhET6pA7TqrK+Ya8TrYe2vvqsp62TYKS87oNuReoS7XpDFW0rrOsQo66G1yYf3K0E+lJHFHuw==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.6",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyModel/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/UlDKULIVkLQYn1BaHcy/rc91ApDxJb7T75HcCbGdqwvxhnRQRKM2di1E70iCPMF9zsr6f4EgQTotBGxFIfXmw==",
+      "path": "microsoft.extensions.dependencymodel/3.1.6",
+      "hashPath": "microsoft.extensions.dependencymodel.3.1.6.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/3.1.4": {
       "type": "package",
@@ -4198,12 +4240,12 @@
       "path": "system.reflection/4.3.0",
       "hashPath": "system.reflection.4.3.0.nupkg.sha512"
     },
-    "System.Reflection.Emit/4.3.0": {
+    "System.Reflection.Emit/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-228FG0jLcIwTVJyz8CLFKueVqQK36ANazUManGaJHkO0icjiIypKW7YLWLIWahyIkdh5M7mV2dJepllLyA1SKg==",
-      "path": "system.reflection.emit/4.3.0",
-      "hashPath": "system.reflection.emit.4.3.0.nupkg.sha512"
+      "sha512": "sha512-VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "path": "system.reflection.emit/4.7.0",
+      "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
     },
     "System.Reflection.Emit.ILGeneration/4.3.0": {
       "type": "package",
@@ -4379,6 +4421,13 @@
       "sha512": "sha512-Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
       "path": "system.text.encodings.web/4.5.0",
       "hashPath": "system.text.encodings.web.4.5.0.nupkg.sha512"
+    },
+    "System.Text.Json/4.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
+      "path": "system.text.json/4.7.2",
+      "hashPath": "system.text.json.4.7.2.nupkg.sha512"
     },
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",
@@ -5625,11 +5674,6 @@
       "sha512": ""
     },
     "System.Text.Encodings.Web.Reference/4.0.5.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "System.Text.Json/4.0.1.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

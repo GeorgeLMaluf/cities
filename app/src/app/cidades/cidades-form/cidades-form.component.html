@@ -1,0 +1,40 @@
+<div class="container">
+  <h3>{{titulo}}</h3>
+  <form [formGroup]="CidadeForm" (submit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <label>Ibge</label>
+          <input id="Ibge" formControlName="Ibge" type="number" maxlength="8" class="form-control">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>UF</label>
+          <input id="Uf" formControlName="Uf" type="text" maxlength="2" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Cidade</label>
+      <input id="Cidade" formControlName="Cidade" type="text" maxlength="80" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Regi&atilde;o</label>
+      <input id="Regiao" formControlName="Regiao" type="text" maxlength="60" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Longitude</label>
+      <input id="Longitude" formControlName="Longitude" type="text" maxlength="25" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Latitude</label>
+      <input id="Latitude" formControlName="Latitude" type="text" maxlength="25" class="form-control">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    &nbsp;
+    <button type="button" class="btn btn-default" [routerLink]="['/cidades']" routerLinkActive="router-link-active">Voltar</button>
+  </form>
+</div>

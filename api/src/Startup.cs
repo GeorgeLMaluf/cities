@@ -1,26 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using AutoMapper;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using Swashbuckle.AspNetCore.SwaggerUI;
-
 using Microsoft.EntityFrameworkCore;
 using api.Domain.Repositories;
 using api.Domain.Services;
 using api.Persistence.Repositories;
 using api.Services;
 using api.Persistence.Contexts;
+using api.Mapping;
 
 namespace api
 {
@@ -41,6 +33,7 @@ namespace api
                 optionsAction => optionsAction.UseNpgsql(Configuration.GetConnectionString("Conexao"))
                 );
             services.AddScoped<ICityRepository, CityRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICityService, CityService>();
 
             services.AddSwaggerGen(options => {
@@ -56,7 +49,14 @@ namespace api
                             }
                     });
             });            
+            
+            var mappingCfg = new MapperConfiguration(mc => {
+                mc.AddProfile(new ModelToResourceProfile());
+                mc.AddProfile(new ResourceToModelProfile());
+            });
 
+            IMapper mapper = mappingCfg.CreateMapper();
+            services.AddSingleton(mapper);
             services.AddControllers();
         }
 

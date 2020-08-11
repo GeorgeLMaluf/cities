@@ -5,12 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />    
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1" />
+    
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />

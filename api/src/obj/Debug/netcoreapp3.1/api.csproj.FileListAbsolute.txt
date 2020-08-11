@@ -116,3 +116,6 @@
 /home/george/Provas/linxchallenge/api/src/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
 /home/george/Provas/linxchallenge/api/src/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
 /home/george/Provas/linxchallenge/api/src/obj/Debug/netcoreapp3.1/api.MvcApplicationPartsAssemblyInfo.cs
+/home/george/Provas/linxchallenge/api/src/bin/Debug/netcoreapp3.1/AutoMapper.dll
+/home/george/Provas/linxchallenge/api/src/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll
+/home/george/Provas/linxchallenge/api/src/bin/Debug/netcoreapp3.1/System.Text.Json.dll

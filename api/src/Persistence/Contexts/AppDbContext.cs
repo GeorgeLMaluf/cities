@@ -13,9 +13,9 @@ namespace api.Persistence.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<City>().Property(c => c.Id).ValueGeneratedOnAdd();
-            builder.Entity<City>().HasKey(c => c.Id);            
-            builder.Entity<City>().HasAlternateKey(c => c.Ibge);
-            builder.Entity<City>().HasAlternateKey(c => new {c.Uf, c.Cidade});
+            builder.Entity<City>().HasKey(c => c.Id);
+            builder.Entity<City>().HasIndex(c => c.Ibge).IsUnique();
+            builder.Entity<City>().HasIndex(c => new { c.Uf, c.Cidade}).IsUnique();
             builder.Entity<City>().ToTable("cities");
         }
     }
